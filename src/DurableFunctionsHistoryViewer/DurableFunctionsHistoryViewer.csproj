@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>DurableFunctionsHistoryViewer</AssemblyName>
+    <RootNamespace>DurableFunctionsHistoryViewer</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Detail.cshtml" />
+    <None Remove="Views\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Detail.cshtml" />
+    <EmbeddedResource Include="Views\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="3.0.0" />
+    <PackageReference Include="RazorGenerator.Mvc" Version="2.4.9" />
+    <PackageReference Include="RazorGenerator.Templating" Version="2.4.7" />
+    <PackageReference Include="System.Threading.AccessControl" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RazorLight\RazorLight.csproj" />
+  </ItemGroup>
+
+</Project>
