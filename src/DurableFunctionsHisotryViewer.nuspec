@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>DurableFunctionsHistoryViewer</id>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <authors>yu_ka1984</authors>
     <owners>yu_ka1984</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
