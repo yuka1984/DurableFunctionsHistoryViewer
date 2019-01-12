@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using DurableFunctionsHistoryViewer.Models;
 using DurableFunctionsHistoryViewer.Tools;
 using DurableFunctionsHistoryViewer.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 using RazorLightCustom;
@@ -23,7 +24,11 @@ namespace DurableFunctionsHistoryViewer
         private const string EndTimeParameter = "endtime";
         private const string OrchestratorNameParameter = "orchestratorname";
         private const string CodeParameter = "code";
+        private const string ActionParameter = "action";
+        private const string TerminateAction = "terminate";
+        private const string RewindAction = "rewind";
         private readonly CloudTableClient _tableClient;
+        private readonly HttpClient _client;
         private readonly string _taskHubName;
         private readonly IRazorLightEngine _razorLightEngine;
         private readonly Dfhv _confg;
@@ -33,6 +38,7 @@ namespace DurableFunctionsHistoryViewer
             _taskHubName = taskHubName;
             _razorLightEngine = razorLightEngine;
             _confg = confg;
+            _client = new HttpClient();
         }
 
         public async Task<HttpResponseMessage> HandleRequestAsync(HttpRequestMessage request)
@@ -48,7 +54,7 @@ namespace DurableFunctionsHistoryViewer
             }
 
             i = path.IndexOf(DetailAction, StringComparison.OrdinalIgnoreCase);
-            if (i >= 0 || (request.Method == HttpMethod.Get && path.EndsWith(DetailAction.TrimEnd('/'), StringComparison.OrdinalIgnoreCase)))
+            if (i >= 0 || (path.EndsWith(DetailAction.TrimEnd('/'), StringComparison.OrdinalIgnoreCase)))
             {
                 // Retrive All Status in case of the request URL ends e.g. /detail/
                 if (string.IsNullOrEmpty(param.InstanceId))
@@ -56,19 +62,60 @@ namespace DurableFunctionsHistoryViewer
                     return request.CreateResponse(HttpStatusCode.NotFound);
                 }
 
+                if (!string.IsNullOrEmpty(param.Action))
+                {
+                    if (param.Action.Equals(TerminateAction, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        var url =
+                            $"{request.RequestUri.Scheme}://{request.RequestUri.Authority}/runtime/webhooks/durabletask/instances/{param.InstanceId}/terminate?reason=&taskHub={this._taskHubName}&connection=Storage&code={param.Code}";
+                        var response = await _client.PostAsync(url, new ByteArrayContent(Array.Empty<byte>()));
+                        if (response.IsSuccessStatusCode)
+                        {
+                            return GetRedirectDetail(request, param.InstanceId, param.Code);
+                        }
+                        else
+                        {
+                            return await GetDetail(param.Code, param.InstanceId, request, $"Terminate Faild. Return status code is {(int)response.StatusCode}");
+                        }
+                    }
+                    else if (param.Action.Equals(RewindAction, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        var url =
+                            $"{request.RequestUri.Scheme}://{request.RequestUri.Authority}/runtime/webhooks/durabletask/instances/{param.InstanceId}/rewind?reason=&taskHub={this._taskHubName}&connection=Storage&code={param.Code}";
+                        var response = await _client.PostAsync(url, new ByteArrayContent(Array.Empty<byte>()));
+                        if (response.IsSuccessStatusCode)
+                        {
+                            return GetRedirectDetail(request, param.InstanceId, param.Code);
+                        }
+                        else
+                        {
+                            return await GetDetail(param.Code, param.InstanceId, request, $"Rewind faild. Return status code is {(int)response.StatusCode}");
+                        }
+                    }
+                    else
+                    {
+                        return request.CreateErrorResponse(HttpStatusCode.BadRequest, "action");
+                    }
+                }
+
+
                 return await GetDetail(param.Code, param.InstanceId, request);
-            }
+            }            
 
             return request.CreateResponse(HttpStatusCode.NotFound);
         }
 
-        private string GetDetailUrl(string instanceId, HttpRequestMessage request)
+        private string GetDetailUrl(string instanceId, HttpRequestMessage request, string code = null)
         {
             var hostUrl = request.RequestUri.GetLeftPart(UriPartial.Authority);
             var url = hostUrl + _confg.NotificationUrl.AbsolutePath.TrimEnd('/');
             url += DetailAction;
             var query = $"{InstanceIdParameter}={WebUtility.UrlEncode(instanceId)}";
-            if (!string.IsNullOrEmpty(_confg.NotificationUrl.Query))
+            if (!string.IsNullOrEmpty(code))
+            {
+                query += $"&code={code}";
+            }
+            else if (!string.IsNullOrEmpty(_confg.NotificationUrl.Query))
             {
                 // This is expected to include the auto-generated system key for this extension.
                 query += "&" + _confg.NotificationUrl.Query.TrimStart('?');
@@ -78,7 +125,14 @@ namespace DurableFunctionsHistoryViewer
             return url;
         }
 
-        public async Task<HttpResponseMessage> GetDetail(string code, string instanceId, HttpRequestMessage request)
+        private static HttpResponseMessage GetRedirectDetail(HttpRequestMessage request, string instanceId, string code)
+        {
+            var responseMessage = request.CreateResponse(HttpStatusCode.Redirect);
+            responseMessage.Headers.Location = new Uri($"{request.RequestUri.Scheme}://{request.RequestUri.Authority}{request.RequestUri.AbsolutePath}?instanceid={instanceId}&code={code}");
+            return responseMessage;
+        }
+
+        public async Task<HttpResponseMessage> GetDetail(string code, string instanceId, HttpRequestMessage request, string errorMessage = null)
         {
             var table = _tableClient.GetTableReference($"{_taskHubName}History");
             if (!await table.ExistsAsync())
@@ -108,7 +162,10 @@ namespace DurableFunctionsHistoryViewer
                 .ToList();
             var vm = new HistoryViewModel
             {
-                List = entities
+                Code = code,
+                List = entities,
+                InstanceId = instanceId,
+                ErrorMessage = errorMessage
             };
             var html = await _razorLightEngine.CompileRenderAsync(
                 "Views.Detail.cshtml", vm);
@@ -195,7 +252,7 @@ namespace DurableFunctionsHistoryViewer
                     Name = x.Name,
                     RuntimeStatus = x.RuntimeStatus,
                     Version = x.Version,
-                    DetailUrl = GetDetailUrl(x.PartitionKey, request)
+                    DetailUrl = GetDetailUrl(x.PartitionKey, request, code)
                 }).ToList()
             };
           var html = await _razorLightEngine.CompileRenderAsync(
@@ -207,16 +264,17 @@ namespace DurableFunctionsHistoryViewer
             };            
         }
 
-        private (DateTimeOffset? StartTime, DateTimeOffset? EndTime, string InstanceId, string OrchestratorName, string Code) GetParams(HttpRequestMessage request)
+        private (DateTimeOffset? StartTime, DateTimeOffset? EndTime, string InstanceId, string OrchestratorName, string Code, string Action) GetParams(HttpRequestMessage request)
         {
             string instanceId = null;
             DateTimeOffset? starttime = null;
             DateTimeOffset? endtime = null;
             string orchestratorName = null;
             string code = null;
+            string action = null;
 
             var pairs = request.GetQueryNameValuePairs();
-            foreach (var key in pairs.AllKeys)
+            foreach (var key in pairs.AllKeys.Where(x=> x != null))
             {
                 if (instanceId == null
                          && key.Equals(InstanceIdParameter, StringComparison.OrdinalIgnoreCase)
@@ -254,9 +312,15 @@ namespace DurableFunctionsHistoryViewer
                 {
                     code = pairs[key];
                 }
+                else if (action == null
+                         && key.Equals(ActionParameter, StringComparison.OrdinalIgnoreCase)
+                         && !string.IsNullOrWhiteSpace(pairs[key]))
+                {
+                    action = pairs[key];
+                }
             }
 
-            return (starttime,endtime, instanceId, orchestratorName, code);
+            return (starttime,endtime, instanceId, orchestratorName, code, action);
         }
     }
 }
