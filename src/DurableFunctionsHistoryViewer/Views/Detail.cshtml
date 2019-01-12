@@ -10827,6 +10827,20 @@
         </p>
     </div>
     <div class="container">
+        <form>
+            <input class="button" name="action" id="terminate" type="submit" value="terminate">
+            <input class="button" name="action" id="rewind" type="submit" value="rewind">
+            <input type="hidden" name="instanceId" value="@Model.InstanceId" />
+            <input type="hidden" name="code" value="@Model.Code" />
+        </form>
+    </div>
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="notification is-danger">
+            @Model.ErrorMessage
+        </div>
+    }
+    <div class="container">
         @if (Model.List.Any())
         {
             <table style="font-size:10px" class="table">
