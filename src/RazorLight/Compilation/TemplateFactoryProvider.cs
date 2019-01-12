@@ -1,9 +1,9 @@
-﻿using RazorLight.Razor;
+﻿using RazorLightCustom.Razor;
 using System;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace RazorLight.Compilation
+namespace RazorLightCustom.Compilation
 {
     public class TemplateFactoryProvider : ITemplateFactoryProvider
     {

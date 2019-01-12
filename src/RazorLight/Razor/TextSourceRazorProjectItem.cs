@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace RazorLight.Razor
+namespace RazorLightCustom.Razor
 {
     public class TextSourceRazorProjectItem : RazorLightProjectItem
     {

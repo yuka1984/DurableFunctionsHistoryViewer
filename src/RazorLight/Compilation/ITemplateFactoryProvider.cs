@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RazorLight.Compilation
+namespace RazorLightCustom.Compilation
 {
     public interface ITemplateFactoryProvider
     {

@@ -3,7 +3,7 @@ using System.Buffers;
 using System.Collections.Generic;
 using System.IO;
 
-namespace RazorLight.Internal
+namespace RazorLightCustom.Internal
 {
     /// <summary>
     /// A <see cref="IViewBufferScope"/> that uses pooled memory.

@@ -1,10 +1,10 @@
-﻿using RazorLight.Extensions;
+﻿using RazorLightCustom.Extensions;
 using System;
 using System.Dynamic;
 using System.Linq;
 using System.Reflection;
 
-namespace RazorLight
+namespace RazorLightCustom
 {
     /// <summary>
 	/// Stores information about model of the template page

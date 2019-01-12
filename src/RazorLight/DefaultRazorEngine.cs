@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Mvc.Razor.Extensions;
 using Microsoft.AspNetCore.Razor.Language;
 using Microsoft.AspNetCore.Razor.Language.Extensions;
-using RazorLight.Instrumentation;
+using RazorLightCustom.Instrumentation;
 
-namespace RazorLight
+namespace RazorLightCustom
 {
     internal sealed class DefaultRazorEngine
     {

@@ -6,14 +6,14 @@ using System.IO;
 using System.ComponentModel;
 using System.Text.Encodings.Web;
 using System.Diagnostics;
-using RazorLight.Internal;
+using RazorLightCustom.Internal;
 using Microsoft.AspNetCore.Razor.Runtime.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using RazorLight.TagHelpers;
+using RazorLightCustom.TagHelpers;
 using System.Buffers;
-using RazorLight.Text;
+using RazorLightCustom.Text;
 
-namespace RazorLight
+namespace RazorLightCustom
 {
     public abstract class TemplatePageBase : ITemplatePage
     {

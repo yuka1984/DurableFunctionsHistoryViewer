@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
-using RazorLight.Internal;
+using RazorLightCustom.Internal;
 using System;
 using System.Collections.Concurrent;
 using System.Reflection;
 
-namespace RazorLight.TagHelpers
+namespace RazorLightCustom.TagHelpers
 {
     /// <summary>
     /// Default implementation for <see cref="ITagHelperFactory"/>.

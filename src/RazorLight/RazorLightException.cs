@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RazorLight
+namespace RazorLightCustom
 {
     public class RazorLightException : Exception
     {

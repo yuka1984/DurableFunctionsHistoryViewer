@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.Razor.Language;
 using Microsoft.AspNetCore.Razor.Language.CodeGeneration;
 using Microsoft.AspNetCore.Razor.Language.Intermediate;
-using RazorLight.Internal;
+using RazorLightCustom.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RazorLight.Instrumentation
+namespace RazorLightCustom.Instrumentation
 {
     public class InjectDirective
     {
@@ -78,7 +78,7 @@ namespace RazorLight.Instrumentation
 
         internal class InjectTargetExtension : IInjectTargetExtension
         {
-            private const string RazorInjectAttribute = "[global::RazorLight.Internal.RazorInjectAttribute]";
+            private const string RazorInjectAttribute = "[global::RazorLightCustom.Internal.RazorInjectAttribute]";
 
             public void WriteInjectProperty(CodeRenderingContext context, InjectIntermediateNode node)
             {

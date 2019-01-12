@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace RazorLight.Internal
+namespace RazorLightCustom.Internal
 {
 	internal class PropertyActivator<TContext>
 	{

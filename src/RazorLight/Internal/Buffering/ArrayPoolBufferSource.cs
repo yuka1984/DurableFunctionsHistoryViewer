@@ -1,6 +1,6 @@
 ﻿using System.Buffers;
 
-namespace RazorLight.Internal
+namespace RazorLightCustom.Internal
 {
     public class ArrayPoolBufferSource : ICharBufferSource
     {

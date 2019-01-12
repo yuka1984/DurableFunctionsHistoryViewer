@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Razor.Language;
 using Microsoft.AspNetCore.Razor.Language.Intermediate;
 
-namespace RazorLight.Instrumentation
+namespace RazorLightCustom.Instrumentation
 {
     public class RazorLightTemplateDocumentClassifierPass : DocumentClassifierPassBase
     {
-        public static readonly string RazorLightTemplateDocumentKind = "razorlight.2.0.template";
+        public static readonly string RazorLightTemplateDocumentKind = "razorlightcustom.2.0.template";
 
         protected override string DocumentKind => RazorLightTemplateDocumentKind;
 
@@ -21,10 +21,10 @@ namespace RazorLight.Instrumentation
 
             base.OnDocumentStructureCreated(codeDocument, @namespace, @class, method);
 
-            @namespace.Content = "RazorLight.CompiledTemplates";
+            @namespace.Content = "RazorLightCustom.CompiledTemplates";
 
             @class.ClassName = "GeneratedTemplate"; //CSharpIdentifier.GetClassNameFromPath(templateKey);
-            @class.BaseType = "global::RazorLight.TemplatePage<TModel>";
+            @class.BaseType = "global::RazorLightCustom.TemplatePage<TModel>";
             @class.Modifiers.Clear();
             @class.Modifiers.Add("public");
 

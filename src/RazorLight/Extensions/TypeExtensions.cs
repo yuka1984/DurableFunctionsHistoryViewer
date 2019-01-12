@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-namespace RazorLight.Extensions
+namespace RazorLightCustom.Extensions
 {
     public static class TypeExtensions
     {

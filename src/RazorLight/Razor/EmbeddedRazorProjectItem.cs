@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace RazorLight.Razor
+namespace RazorLightCustom.Razor
 {
     public class EmbeddedRazorProjectItem : RazorLightProjectItem
     {

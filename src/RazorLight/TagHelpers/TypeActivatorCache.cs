@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Concurrent;
 
-namespace RazorLight.TagHelpers
+namespace RazorLightCustom.TagHelpers
 {
     /// <summary>
     /// Caches <see cref="ObjectFactory"/> instances produced by 

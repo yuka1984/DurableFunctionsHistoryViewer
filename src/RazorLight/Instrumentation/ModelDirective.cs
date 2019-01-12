@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RazorLight.Instrumentation
+namespace RazorLightCustom.Instrumentation
 {
     public static class ModelDirective
     {

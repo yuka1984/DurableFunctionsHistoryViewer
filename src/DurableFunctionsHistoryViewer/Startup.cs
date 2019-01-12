@@ -6,7 +6,7 @@ using DurableFunctionsHistoryViewer;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using RazorLight;
+using RazorLightCustom;
 
 [assembly: WebJobsStartup(typeof(Startup))]
 

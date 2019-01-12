@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace RazorLight.Internal
+namespace RazorLightCustom.Internal
 {
     /// <summary>
     /// Creates and manages the lifetime of <see cref="T:ViewBufferValue[]"/> instances.

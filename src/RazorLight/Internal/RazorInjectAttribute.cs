@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RazorLight.Internal
+namespace RazorLightCustom.Internal
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
     public class RazorInjectAttribute : Attribute

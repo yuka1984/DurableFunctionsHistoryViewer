@@ -40,5 +40,10 @@ namespace DurableFunctionsHistoryViewer
         /// A URL pointing to the hosted function app that responds to status polling requests.
         /// </value>
         public Uri NotificationUrl { get; set; }
+
+        /// <summary>
+        /// Gets or sets the display datetime offset hour.
+        /// </summary>
+        public double OffsetHour { get; set; }
     }
 }

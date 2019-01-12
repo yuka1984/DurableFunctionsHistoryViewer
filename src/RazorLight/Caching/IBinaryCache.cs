@@ -6,7 +6,7 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
 
-namespace RazorLight.Caching
+namespace RazorLightCustom.Caching
 {
     public interface IBinaryCache: IDisposable
     {

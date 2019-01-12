@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace RazorLight.Razor
+namespace RazorLightCustom.Razor
 {
     public abstract class RazorLightProject
     {

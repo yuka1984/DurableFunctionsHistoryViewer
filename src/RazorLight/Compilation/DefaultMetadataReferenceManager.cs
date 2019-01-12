@@ -8,7 +8,7 @@ using System.Linq;
 using System.IO;
 using System.Reflection.PortableExecutable;
 
-namespace RazorLight.Compilation
+namespace RazorLightCustom.Compilation
 {
     public class DefaultMetadataReferenceManager : IMetadataReferenceManager
     {

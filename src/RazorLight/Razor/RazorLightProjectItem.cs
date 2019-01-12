@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Primitives;
 using System.IO;
 
-namespace RazorLight.Razor
+namespace RazorLightCustom.Razor
 {
     public abstract class RazorLightProjectItem
     {

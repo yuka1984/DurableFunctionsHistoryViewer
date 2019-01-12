@@ -10,7 +10,7 @@ using DurableFunctionsHistoryViewer.Tools;
 using DurableFunctionsHistoryViewer.ViewModels;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
-using RazorLight;
+using RazorLightCustom;
 
 namespace DurableFunctionsHistoryViewer
 {
@@ -93,6 +93,7 @@ namespace DurableFunctionsHistoryViewer
                     Detail = x.Detail,
                     EventId = x.EventId,
                     EventType = x.EventType,
+                    TimeStamp = x.Timestamp.ToOffset(TimeSpan.FromHours(_confg.OffsetHour)),
                     ExecutionId = x.ExecutionId,
                     Input = x.Input,
                     IsPlayed = x.IsPlayed,
@@ -186,10 +187,11 @@ namespace DurableFunctionsHistoryViewer
                 List = instances.Select(x => new IndexItemViewModel()
                 {
                     InstanceId = x.PartitionKey,
-                    CreatedTime = x.CreatedTime,
+                    CreatedTime = x.CreatedTime.ToOffset(TimeSpan.FromHours(_confg.OffsetHour)),                    
                     ExecutionId = x.ExecutionId,
                     Input = x.Input,
-                    LastUpdatedTime = x.LastUpdatedTime,
+                    Output = x.Output,
+                    LastUpdatedTime = x.LastUpdatedTime.ToOffset(TimeSpan.FromHours(_confg.OffsetHour)),
                     Name = x.Name,
                     RuntimeStatus = x.RuntimeStatus,
                     Version = x.Version,

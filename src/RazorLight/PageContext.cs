@@ -1,7 +1,7 @@
 ﻿using System.Dynamic;
 using System.IO;
 
-namespace RazorLight
+namespace RazorLightCustom
 {
     public class PageContext : IPageContext
     {

@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RazorLight.Razor
+namespace RazorLightCustom.Razor
 {
     /// <summary>
     /// Specifies RazorProject where templates are located in files

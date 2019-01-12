@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
-namespace RazorLight.Internal
+namespace RazorLightCustom.Internal
 {
     /// <summary>
     /// <para>

@@ -2,9 +2,9 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System;
-using RazorLight.Caching;
+using RazorLightCustom.Caching;
 
-namespace RazorLight
+namespace RazorLightCustom
 {
 	public class RazorLightOptions
 	{

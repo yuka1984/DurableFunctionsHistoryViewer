@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Razor.Language;
-using RazorLight.Razor;
+using RazorLightCustom.Razor;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
 
-namespace RazorLight.Generation
+namespace RazorLightCustom.Generation
 {
     public class RazorSourceGenerator
     {

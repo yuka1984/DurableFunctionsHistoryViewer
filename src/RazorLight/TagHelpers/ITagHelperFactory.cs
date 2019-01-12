@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace RazorLight.TagHelpers
+namespace RazorLightCustom.TagHelpers
 {
     /// <summary>
     /// Provides methods to create and initialize tag helpers.

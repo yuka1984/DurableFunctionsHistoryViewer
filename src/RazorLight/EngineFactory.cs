@@ -1,7 +1,7 @@
 ﻿using System;
-using RazorLight.Razor;
+using RazorLightCustom.Razor;
 
-namespace RazorLight
+namespace RazorLightCustom
 {
 	[Obsolete("Use RazorLightEngineBuilder instead", true)]
     public class EngineFactory : IEngineFactory

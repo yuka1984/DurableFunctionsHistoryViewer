@@ -1,9 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>DurableFunctionsHistoryViewer</AssemblyName>
     <RootNamespace>DurableFunctionsHistoryViewer</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Authors>yu_ka1984</Authors>
+    <Description>Durable Functions HisotryViewer Extensions</Description>
+    <Version>1.0.0 -beta1</Version>
+    <PackageProjectUrl>https://github.com/yuka1984/DurableFunctionsHistoryViewer</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,8 +24,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="3.0.0" />
-    <PackageReference Include="RazorGenerator.Mvc" Version="2.4.9" />
-    <PackageReference Include="RazorGenerator.Templating" Version="2.4.7" />
     <PackageReference Include="System.Threading.AccessControl" Version="4.5.0" />
   </ItemGroup>
 

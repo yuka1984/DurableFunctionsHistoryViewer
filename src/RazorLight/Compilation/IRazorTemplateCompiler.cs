@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace RazorLight.Compilation
+namespace RazorLightCustom.Compilation
 {
 	public interface IRazorTemplateCompiler
 	{

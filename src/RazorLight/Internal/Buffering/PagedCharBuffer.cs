@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace RazorLight.Internal
+namespace RazorLightCustom.Internal
 {
     public class PagedCharBuffer : IDisposable
     {

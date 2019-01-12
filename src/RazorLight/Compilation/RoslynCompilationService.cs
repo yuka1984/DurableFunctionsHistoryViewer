@@ -14,13 +14,13 @@ using Microsoft.CodeAnalysis.Text;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyModel;
 using Microsoft.Extensions.Options;
-using RazorLight.Caching;
-using RazorLight.Generation;
-using RazorLight.Internal;
-using RazorLight.Razor;
+using RazorLightCustom.Caching;
+using RazorLightCustom.Generation;
+using RazorLightCustom.Internal;
+using RazorLightCustom.Razor;
 using DependencyContextCompilationOptions = Microsoft.Extensions.DependencyModel.CompilationOptions;
 
-namespace RazorLight.Compilation
+namespace RazorLightCustom.Compilation
 {
 	public class RoslynCompilationService : ICompilationService
 	{

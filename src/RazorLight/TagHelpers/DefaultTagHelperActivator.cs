@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 using System;
 
-namespace RazorLight.TagHelpers
+namespace RazorLightCustom.TagHelpers
 {
     /// <summary>
     /// Default implementation of <see cref="ITagHelperActivator"/>.

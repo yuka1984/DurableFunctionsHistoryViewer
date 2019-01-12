@@ -3,9 +3,9 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
-using RazorLight.Internal;
+using RazorLightCustom.Internal;
 
-namespace RazorLight.DependencyInjection
+namespace RazorLightCustom.DependencyInjection
 {
 	public class PropertyInjector
 	{

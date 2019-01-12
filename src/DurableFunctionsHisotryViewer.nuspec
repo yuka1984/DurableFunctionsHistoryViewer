@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>DurableFunctionsHistoryViewer</id>
+    <version>1.0.0</version>
+    <authors>yu_ka1984</authors>
+    <owners>yu_ka1984</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/yuka1984/DurableFunctionsHistoryViewer</projectUrl>
+    <description>Durable Functions HisotryViewer Extensions</description>	
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Microsoft.Azure.WebJobs.Extensions" version="3.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.Threading.AccessControl" version="4.5.0" exclude="Build,Analyzers" />
+		<dependency id="Microsoft.CodeAnalysis" version="2.9.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+		<file src="DurableFunctionsHistoryViewer\bin\Release\netstandard2.0\DurableFunctionsHistoryViewer.dll" target="lib"  />
+		<file src="DurableFunctionsHistoryViewer\bin\Release\netstandard2.0\DurableFunctionsHistoryViewer.pdb" target="lib"  />
+		<file src="DurableFunctionsHistoryViewer\bin\Release\netstandard2.0\RazorLight.Custom.dll" target="lib"  />
+		<file src="DurableFunctionsHistoryViewer\bin\Release\netstandard2.0\RazorLight.Custom.pdb" target="lib"  />
+	</files>
+</package>

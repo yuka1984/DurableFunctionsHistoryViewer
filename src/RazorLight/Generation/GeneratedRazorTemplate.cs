@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Razor.Language;
-using RazorLight.Razor;
+using RazorLightCustom.Razor;
 using System;
 
-namespace RazorLight.Generation
+namespace RazorLightCustom.Generation
 {
     public class GeneratedRazorTemplate : IGeneratedRazorTemplate
     {

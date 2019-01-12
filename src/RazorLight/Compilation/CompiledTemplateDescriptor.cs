@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.AspNetCore.Razor.Hosting;
 using Microsoft.Extensions.Primitives;
-using RazorLight.Razor;
+using RazorLightCustom.Razor;
 
-namespace RazorLight.Compilation
+namespace RazorLightCustom.Compilation
 {
     public class CompiledTemplateDescriptor
     {

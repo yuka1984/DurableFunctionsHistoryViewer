@@ -1,11 +1,11 @@
 ﻿using System.IO;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Emit;
-using RazorLight.Generation;
+using RazorLightCustom.Generation;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace RazorLight.Compilation
+namespace RazorLightCustom.Compilation
 {
     public interface ICompilationService
     {

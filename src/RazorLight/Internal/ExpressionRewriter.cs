@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq.Expressions;
 
-namespace RazorLight.Internal
+namespace RazorLightCustom.Internal
 {
     /// <summary>
     /// An expression rewriter which can hoist a simple expression lambda into a private field.

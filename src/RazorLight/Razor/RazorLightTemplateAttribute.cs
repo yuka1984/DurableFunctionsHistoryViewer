@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RazorLight.Razor
+namespace RazorLightCustom.Razor
 {
     [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
     public class RazorLightTemplateAttribute : Attribute

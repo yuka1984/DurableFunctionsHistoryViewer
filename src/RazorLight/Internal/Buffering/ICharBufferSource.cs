@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RazorLight.Internal
+namespace RazorLightCustom.Internal
 {
     public interface ICharBufferSource
     {

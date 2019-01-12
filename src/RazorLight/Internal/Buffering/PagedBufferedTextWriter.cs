@@ -6,7 +6,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RazorLight.Internal
+namespace RazorLightCustom.Internal
 {
     public class PagedBufferedTextWriter : TextWriter
     {

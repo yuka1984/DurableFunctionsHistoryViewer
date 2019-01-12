@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Primitives;
 using System;
 
-namespace RazorLight.Caching
+namespace RazorLightCustom.Caching
 {
     public interface ICachingProvider
     {

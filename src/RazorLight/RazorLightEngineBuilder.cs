@@ -1,14 +1,14 @@
 ﻿using Microsoft.CodeAnalysis;
-using RazorLight.Caching;
-using RazorLight.Compilation;
-using RazorLight.Generation;
-using RazorLight.Razor;
+using RazorLightCustom.Caching;
+using RazorLightCustom.Compilation;
+using RazorLightCustom.Generation;
+using RazorLightCustom.Razor;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace RazorLight
+namespace RazorLightCustom
 {
     public class RazorLightEngineBuilder
     {

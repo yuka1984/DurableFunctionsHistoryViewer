@@ -3,11 +3,11 @@ using System.Dynamic;
 using System.IO;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using RazorLight.Caching;
-using RazorLight.Compilation;
-using RazorLight.Internal;
+using RazorLightCustom.Caching;
+using RazorLightCustom.Compilation;
+using RazorLightCustom.Internal;
 
-namespace RazorLight
+namespace RazorLightCustom
 {
 	public class EngineHandler : IEngineHandler
 	{

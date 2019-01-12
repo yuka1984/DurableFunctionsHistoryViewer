@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace RazorLight.TagHelpers
+namespace RazorLightCustom.TagHelpers
 {
     /// <summary>
     /// Initializes an <see cref="ITagHelper"/> before it's executed.

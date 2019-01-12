@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RazorLight.TagHelpers
+namespace RazorLightCustom.TagHelpers
 {
     public interface ITypeActivatorCache
     {

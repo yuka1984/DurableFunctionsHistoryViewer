@@ -1,7 +1,7 @@
-﻿using RazorLight.Compilation;
+﻿using RazorLightCustom.Compilation;
 using System;
 
-namespace RazorLight.Compilation
+namespace RazorLightCustom.Compilation
 {
     public struct TemplateFactoryResult
     {

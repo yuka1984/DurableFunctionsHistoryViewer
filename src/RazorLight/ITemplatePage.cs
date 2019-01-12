@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Html;
-using RazorLight.Internal;
+using RazorLightCustom.Internal;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace RazorLight
+namespace RazorLightCustom
 {
 	public interface ITemplatePage
 	{

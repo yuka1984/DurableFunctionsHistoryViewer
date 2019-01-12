@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Razor.Hosting;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
-using RazorLight.Caching;
-using RazorLight.Generation;
-using RazorLight.Razor;
+using RazorLightCustom.Caching;
+using RazorLightCustom.Generation;
+using RazorLightCustom.Razor;
 
-namespace RazorLight.Compilation
+namespace RazorLightCustom.Compilation
 {
 	public class RazorTemplateCompiler : IRazorTemplateCompiler
 	{

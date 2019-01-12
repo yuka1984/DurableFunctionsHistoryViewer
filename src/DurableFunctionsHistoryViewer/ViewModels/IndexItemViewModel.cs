@@ -7,13 +7,15 @@ namespace DurableFunctionsHistoryViewer.ViewModels
     {
         public string InstanceId { get; set; }
 
-        public DateTime CreatedTime { get; set; }
+        public DateTimeOffset CreatedTime { get; set; }
 
         public string ExecutionId { get; set; }
 
         public string Input { get; set; }
 
-        public DateTime LastUpdatedTime { get; set; }
+        public string Output { get; set; }
+
+        public DateTimeOffset LastUpdatedTime { get; set; }
 
         public string Name { get; set; }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace RazorLight.Compilation
+namespace RazorLightCustom.Compilation
 {
     public interface IMetadataReferenceManager
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace RazorLight.Text
+namespace RazorLightCustom.Text
 {
     /// <summary>
 	/// Defines the required contract for implementing an encoded string.

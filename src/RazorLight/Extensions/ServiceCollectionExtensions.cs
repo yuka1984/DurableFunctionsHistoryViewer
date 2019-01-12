@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using RazorLight.DependencyInjection;
+using RazorLightCustom.DependencyInjection;
 
-namespace RazorLight.Extensions
+namespace RazorLightCustom.Extensions
 {
 	public static class ServiceCollectionExtensions
 	{

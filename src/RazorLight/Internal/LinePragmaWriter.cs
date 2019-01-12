@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Razor.Language.CodeGeneration;
 using System;
 using System.Globalization;
 
-namespace RazorLight.Internal
+namespace RazorLightCustom.Internal
 {
     internal static class CodeWriterExtensions
     {

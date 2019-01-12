@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Razor.Language.Intermediate;
 using System.Diagnostics;
 
-namespace RazorLight.Instrumentation
+namespace RazorLightCustom.Instrumentation
 {
     public class RazorLightAssemblyAttributeInjectionPass : IntermediateNodePassBase, IRazorOptimizationPass
     {
-        private const string RazorLightTemplateAttribute = "global::RazorLight.Razor.RazorLightTemplateAttribute";
+        private const string RazorLightTemplateAttribute = "global::RazorLightCustom.Razor.RazorLightTemplateAttribute";
 
         protected override void ExecuteCore(RazorCodeDocument codeDocument, DocumentIntermediateNode documentNode)
         {

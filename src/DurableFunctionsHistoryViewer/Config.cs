@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Description;
 using Microsoft.Azure.WebJobs.Host.Config;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Table;
-using RazorLight;
+using RazorLightCustom;
 
 namespace DurableFunctionsHistoryViewer
 {
@@ -41,7 +42,7 @@ namespace DurableFunctionsHistoryViewer
             return this.hostConfiguration.GetWebJobsConnectionString(connectionStringName);
         }
     }
-
+    [Extension("Dfhv", "Dfhv")]
     public class Dfhv : IExtensionConfigProvider, IAsyncConverter<HttpRequestMessage, HttpResponseMessage>
     {
         private readonly HttpHandler _handler;
@@ -73,6 +74,11 @@ namespace DurableFunctionsHistoryViewer
         /// A URL pointing to the hosted function app that responds to status polling requests.
         /// </value>
         public Uri NotificationUrl { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Display DateTime offset hour.
+        /// </summary>
+        public double OffsetHour => _option.OffsetHour;
         
 
         public Dfhv(IOptions<Option> options, IRazorLightEngine razorLightEngine, INameResolver nameResolver, IConnectionStringResolver connectionStringResolver)

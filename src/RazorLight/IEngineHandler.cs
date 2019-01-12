@@ -3,10 +3,10 @@ using System.Dynamic;
 using System.IO;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using RazorLight.Caching;
-using RazorLight.Compilation;
+using RazorLightCustom.Caching;
+using RazorLightCustom.Compilation;
 
-namespace RazorLight
+namespace RazorLightCustom
 {
 	public interface IEngineHandler
 	{

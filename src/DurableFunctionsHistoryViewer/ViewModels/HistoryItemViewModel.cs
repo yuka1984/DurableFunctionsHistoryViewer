@@ -12,6 +12,8 @@ namespace DurableFunctionsHistoryViewer.ViewModels
 
         public string EventType { get; set; }
 
+        public DateTimeOffset TimeStamp { get; set; }
+
         public string ExecutionId { get; set; }
 
         public bool IsPlayed { get; set; }

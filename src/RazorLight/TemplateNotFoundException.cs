@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RazorLight
+namespace RazorLightCustom
 {
     public class TemplateNotFoundException : RazorLightException
     {

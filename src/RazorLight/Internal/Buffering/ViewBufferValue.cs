@@ -6,7 +6,7 @@ using System.IO;
 using System.Text;
 using System.Text.Encodings.Web;
 
-namespace RazorLight.Internal
+namespace RazorLightCustom.Internal
 {
     /// <summary>
     /// Encapsulates a string or <see cref="IHtmlContent"/> value.

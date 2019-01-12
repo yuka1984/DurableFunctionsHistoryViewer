@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace RazorLight.Razor
+namespace RazorLightCustom.Razor
 {
     public class FileSystemRazorProjectItem : RazorLightProjectItem
     {
