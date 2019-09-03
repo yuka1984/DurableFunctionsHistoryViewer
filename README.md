@@ -13,13 +13,23 @@ This package can not be used with Azure Functions V1.
 * https://{hostname}/runtime/webhooks/dfhv/index/?code={masterhostkey} You access this URL in the browser.
 If you were executing with local debugging, you do not need to specify [code]paramater in QueryString.
 
-## option
+## Options
 
-```json
-    "dfhv": {
-      "HubName": "TaskHub0001",
-      "OffsetHour":  "9" 
-    }
+This should be configured in `host.json`:
+
 ```
-* HubName The HubName property specifies DurableTaskHubName. Please set same as TaskHub specified by Durable functions.
-* OffsetHour You can specify the Offset time from Utc of the time displayed on the screen.
+{
+  "version": "2.0",
+  "extensions": {
+    "durableTask": {
+      "hubName": "TaskHub123"
+    },
+    "Dfhv": {
+      "HubName": "TaskHub123",
+      "OffsetHour": "5"
+    }
+  }
+}
+```
+* `HubName` The HubName property specifies DurableTaskHubName. Please set same as TaskHub specified by Durable functions.
+* `OffsetHour` You can specify the Offset time from Utc of the time displayed on the screen.
