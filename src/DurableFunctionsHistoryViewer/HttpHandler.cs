@@ -49,14 +49,14 @@ namespace DurableFunctionsHistoryViewer
             int i = path.IndexOf(IndexAction, StringComparison.OrdinalIgnoreCase);
             if (i >= 0)
             {
-                // Retrive All Status in case of the request URL ends e.g. /instances/
+                // Retrieve All Status in case of the request URL ends e.g. /instances/
                 return await GetList(param.Code, param.StartTime, param.EndTime, param.OrchestratorName, request);
             }
 
             i = path.IndexOf(DetailAction, StringComparison.OrdinalIgnoreCase);
             if (i >= 0 || (path.EndsWith(DetailAction.TrimEnd('/'), StringComparison.OrdinalIgnoreCase)))
             {
-                // Retrive All Status in case of the request URL ends e.g. /detail/
+                // Retrieve All Status in case of the request URL ends e.g. /detail/
                 if (string.IsNullOrEmpty(param.InstanceId))
                 {
                     return request.CreateResponse(HttpStatusCode.NotFound);
@@ -75,7 +75,7 @@ namespace DurableFunctionsHistoryViewer
                         }
                         else
                         {
-                            return await GetDetail(param.Code, param.InstanceId, request, $"Terminate Faild. Return status code is {(int)response.StatusCode}");
+                            return await GetDetail(param.Code, param.InstanceId, request, $"Terminate Failed. Return status code is {(int)response.StatusCode}");
                         }
                     }
                     else if (param.Action.Equals(RewindAction, StringComparison.CurrentCultureIgnoreCase))
@@ -89,7 +89,7 @@ namespace DurableFunctionsHistoryViewer
                         }
                         else
                         {
-                            return await GetDetail(param.Code, param.InstanceId, request, $"Rewind faild. Return status code is {(int)response.StatusCode}");
+                            return await GetDetail(param.Code, param.InstanceId, request, $"Rewind failed. Return status code is {(int)response.StatusCode}");
                         }
                     }
                     else
